@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "7"
+addons:
+    code_climate:
+        repo_token: 920fe1689fba262f3b30ad9671f5d749b4171037
+script: istanbul cover node_modules/mocha/bin/_mocha -- -R spec
+before_script:
+  - npm install codeclimate-test-reporter istanbul -g
+after_script:
+  - codeclimate-test-reporter < ./coverage/lcov.
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 920fe1689fba262f3b30ad9671f5d749b4171037
+  keep_history: true
+  on:
+    branch: master

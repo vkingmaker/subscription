@@ -1,0 +1,31 @@
+{
+  "name": "node-with-mysql",
+  "version": "1.0.0",
+  "description": "integrates front end and back end using nodejs and mySql",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon bin/dev",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir ./dist && babel src -d dist/src -s",
+    "serve": "npm run build && node bin/production",
+    "test": "npm run build && mocha dist/src/test"
+  },
+  "author": "Monday Victor",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}
